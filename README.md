@@ -1,14 +1,17 @@
-# Arduino Servo-Mounted Ultrasonic Radar
+# Arduino DHT11 Temperature and Humidity
 
-An HC-SR04 ultrasonic sensor mounted on a servo that sweeps from 15° to 165° and back, measuring the distance at each angle and sending the readings to the computer over serial.
+Reads temperature (°C) and relative humidity (%) from a DHT11 sensor using an Arduino and prints them to the Serial Monitor every 2 seconds.
 
 ## Hardware
 - Arduino board
-- HC-SR04 ultrasonic sensor
-- Servo motor
+- DHT11 sensor
 
-## Pins
-TRIG: 10, ECHO: 11, Servo: 9
+## Wiring
+VCC to 5V, GND to GND, DATA to pin 2
 
 ## Usage
-Upload the sketch in the Arduino IDE and open the Serial Monitor at 9600 baud. Each line is `angle,distance.`, with the distance in cm.
+Install the DHT sensor library (Adafruit) from the Arduino IDE Library Manager, accepting any dependencies it asks for. Upload the sketch and open the Serial Monitor at 9600 baud.
+
+Output looks like this: `Temperature: 23.00 °C  Humidity: 45.00 %`
+
+If the sensor can't be read, it prints `Failed to read from DHT sensor!`, so check the wiring and pin number.
